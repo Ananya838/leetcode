@@ -1,0 +1,14 @@
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        stones = [-x for x in stones]
+        heapq.heapify(stones) # stones = [-8,-7,-4,-2,-1,-1]#maxheap stores in the form of negative value
+
+        while (len(stones))>1:
+            x = heapq.heappop(stones)#first largest elemnt(-8)
+            y =heapq.heappop(stones)#second largest elemnt(-7)
+
+            if x!=y:
+                heapq.heappush(stones,x-y) #ex = x=-8,y=-7 now,(-8)-(-7)=-1 ,add -1 to heap =>[-4,-2,-1,-1,-1]
+        #the final elemnt leftvalue is [-1] 
+        #so return -(-1)=1
+        return -stones[0] if stones else 0
