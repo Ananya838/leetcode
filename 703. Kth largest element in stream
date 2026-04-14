@@ -1,0 +1,22 @@
+class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        #initialize the nums lists and k values
+        self.nums = nums
+        self.k = k   #O(n)-TC
+
+        #turning nums into min heap
+        heapq.heapify(self.nums)
+        
+        #keep popping the heap until it's size is k,meaning it contains only k largest elemnts
+        while len(self.nums)>k:
+            heapq.heappop(self.nums)
+
+    def add(self, val: int) -> int:
+        #adding new value to the heap while keeping the heap property
+        heapq.heappush(self.nums,val)
+
+        if len(self.nums)>self.k:
+            heapq.heappop(self.nums)
+        return self.nums[0]
+        
