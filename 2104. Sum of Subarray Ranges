@@ -1,0 +1,64 @@
+class Solution:
+    def subArrayRanges(self, nums: List[int]) -> int:
+        n = len(nums)
+
+        ####finding the previous/next smaller element to find minmum of subarray
+
+        ## finding prevoius/next greater elemnt to find max of  subarray
+        ###one this to rember one side the subarray find strictly PSE and the other side of subarray equality NSE  
+        # i.e why 
+        # for PSE(nums[stack[-1]]<=nums[i]) //strictly prevous smaller elmnt
+        # for NSE (nums[stack[-1]]<nums[i]) //equality next smaller elmnt
+        stack = []
+        pse = [-1]*n
+        for i in range(n):
+            while stack and nums[stack[-1]]>=nums[i]:
+                stack.pop()
+            if stack:
+                pse[i] = stack[-1]
+            stack.append(i)
+
+        stack = []
+        nse = [n]*n
+        for i in range(n-1,-1,-1):
+            while stack and nums[stack[-1]]>nums[i]:
+                stack.pop()
+            if stack:
+                nse[i] = stack[-1]
+            stack.append(i)
+
+        ## finding prevoius/next greater elemnt to find max of  subarray
+
+        ###one this to rember one side the subarray find strictly PGE and the other side of subarray equality NGE  
+        # i.e why 
+        # for PGE(nums[stack[-1]]<=nums[i]) //strictly prevous greater elmnt
+        # for NGE (nums[stack[-1]]<nums[i]) //equality next greater elmnt
+
+
+        stack = []
+        pge = [-1]*n
+        for i in range(n):
+            while stack and nums[stack[-1]]<=nums[i]:
+                stack.pop()
+            if stack:
+                pge[i] = stack[-1]
+            stack.append(i)
+
+        stack = []
+        nge = [n]*n
+        for i in range(n-1,-1,-1):
+            while stack and nums[stack[-1]]<nums[i]:
+                stack.pop()
+            if stack:
+                nge[i] = stack[-1]
+            stack.append(i)
+        
+        ###core idea
+        rangeval = 0
+        for i in range(n):
+            
+            minval = nums[i]*(i-pse[i])*(nse[i]-i) #nums[i]*leftchoices*rightchoices
+            maxval = nums[i]*(i-pge[i])*(nge[i]-i) #nums[i]*leftchoices*rightchoices
+
+            rangeval += maxval - minval
+        return rangeval
