@@ -1,0 +1,62 @@
+from collections import deque
+
+class MyStack:
+
+    def __init__(self):
+        # We use one queue to simulate a stack.
+        self.q = deque()
+
+    def push(self, x: int) -> None:
+        # Step 1: Insert the new element at the rear of the queue.
+        self.q.append(x)
+
+        # Example:
+        # Queue before push(3): [2, 1]
+        # After append:         [2, 1, 3]
+        #
+        # But in a stack, 3 should be on the top.
+        # Since a queue removes only from the front,
+        # we must move 3 to the front.
+
+        # Rotate all the old elements behind the new element.
+        for _ in range(len(self.q) - 1):
+
+            # Remove the front element
+            front = self.q.popleft()
+
+            # Add it to the rear
+            self.q.append(front)
+
+        # Example:
+        #
+        # Queue after append:
+        # [2, 1, 3]
+        #
+        # First rotation:
+        # Remove 2 -> [1,3]
+        # Append 2 -> [1,3,2]
+        #
+        # Second rotation:
+        # Remove 1 -> [3,2]
+        # Append 1 -> [3,2,1]
+        #
+        # Final Queue:
+        # [3,2,1]
+        #
+        # Now the newest element (3) is at the front.
+
+    def pop(self) -> int:
+        # Since push() already moved the newest element
+        # to the front, simply removing the front
+        # behaves exactly like stack pop().
+        return self.q.popleft()
+
+    def top(self) -> int:
+        # The front of the queue is always
+        # the top of the stack.
+        return self.q[0]
+
+    def empty(self) -> bool:
+        # If the queue is empty,
+        # the stack is also empty.
+        return len(self.q) == 0
