@@ -7,3 +7,19 @@ class Solution:
         while len(maxheap)>k:
             heapq.heappop(maxheap)
         return [point for num,point in maxheap]
+
+
+
+####or
+
+
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        heap = []
+        for x,y in points:
+            distance = x**2 + y**2
+            heapq.heappush(heap,(-distance,[x,y]))
+            if len(heap)>k:
+                heapq.heappop(heap)
+        return [point for distance,point in heap]
+        
