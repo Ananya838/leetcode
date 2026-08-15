@@ -6,6 +6,8 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 
 ### Arrays & Hashing
 * [1. Two Sum](./1.Two%20sum)
+* [15. 3Sum](./15.%203Sum)
+* [16. 3Sum Closest](./16.%203Sum%20Closest)
 * [26. Remove Duplicates from Sorted Array](./26.%20Remove%20Duplicates%20from%20Sorted%20Array)
 * [136. Single Number](./136.single%20number)
 * [169. Majority Element](./169%20Majority%20Element)
