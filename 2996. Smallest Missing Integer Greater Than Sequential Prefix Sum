@@ -1,0 +1,12 @@
+class Solution:
+    def missingInteger(self, nums: List[int]) -> int:
+        Sum = nums[0]
+        for i in range(1,len(nums)):
+            if nums[i] == nums[i-1]+1:
+                Sum += nums[i]
+            else:
+                break
+        numsSet = set(nums)
+        while Sum in numsSet:
+            Sum+=1
+        return Sum
