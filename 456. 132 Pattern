@@ -1,0 +1,20 @@
+class Solution:
+    def find132pattern(self, nums):
+        stack = []
+        middle = float("-inf")
+
+        for num in reversed(nums):
+
+            # Can num become the "1"?
+            if num < middle:
+                return True
+
+            # num can become "3"
+            # popped values can become "2"
+            while stack and num > stack[-1]:
+                middle = stack.pop()
+
+            stack.append(num)
+
+        return False
+        
