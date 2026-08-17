@@ -1,0 +1,18 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        freq = Counter(s)
+
+        heap = [(-count,char) for char,count in freq.items()]
+        heapq.heapify(heap)
+        
+        result = []
+        while heap:
+            count ,char = heapq.heappop(heap)
+
+
+            while count<0:
+                result.append(char)
+                count+=1
+        return ''.join(result)
+        
+        
