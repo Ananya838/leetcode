@@ -1,0 +1,55 @@
+from typing import List
+from collections import Counter
+import heapq
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+
+        # Count frequency of every task
+        freq = Counter(tasks)
+
+        # Python has a Min Heap.
+        # Use negative frequencies to simulate Max Heap.
+        heap = [-count for count in freq.values()]
+
+        # Convert list into a heap
+        heapq.heapify(heap)
+
+        time = 0
+
+        # Continue until all tasks are completed
+        while heap:
+
+            # Store tasks that we execute during this cycle
+            temp = []
+
+            # One cooldown cycle has n + 1 positions
+            for i in range(n + 1):
+
+                # If heap has tasks, execute the most frequent one
+                if heap:
+                    count = heapq.heappop(heap)
+
+                    # We used one occurrence.
+                    # Since count is negative, +1 means decreasing
+                    # the actual frequency by 1.
+                    count += 1
+
+                    # If this task still has remaining occurrences,
+                    # temporarily store it.
+                    if count != 0:
+                        temp.append(count)
+
+                # One CPU interval has passed
+                time += 1
+
+                # If there are no tasks left anywhere,
+                # stop the current cycle early.
+                if not heap and not temp:
+                    break
+
+            # Put all temporarily stored tasks back into heap
+            for count in temp:
+                heapq.heappush(heap, count)
+
+        return time
