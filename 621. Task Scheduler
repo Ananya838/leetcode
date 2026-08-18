@@ -22,3 +22,68 @@ class Solution:
                 heapq.heappush(maxHeap, queue.popleft()[0])
 
         return time
+
+
+
+
+################################################################################################################################################
+#########using dictinory 
+
+
+
+from typing import List
+from collections import Counter
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+
+        # Count how many times each task appears
+        # Example:
+        # tasks = ["A","A","A","B","B","B","C"]
+        # freq = {"A": 3, "B": 3, "C": 1}
+        freq = Counter(tasks)
+
+        # Find the maximum frequency of any task
+        # In our example:
+        # A = 3, B = 3, C = 1
+        # Therefore maxfreq = 3
+        maxfreq = max(freq.values())
+
+        # This will count how many tasks have the maximum frequency
+        # In our example:
+        # A has frequency 3
+        # B has frequency 3
+        # Therefore countmax = 2
+        countmax = 0
+
+        # Go through every frequency in freq
+        # Example: 3, 3, 1
+        for count in freq.values():
+
+            # Check whether this task has the maximum frequency
+            if count == maxfreq:
+
+                # If yes, increase countmax
+                countmax += 1
+
+        # Calculate the minimum number of intervals required
+        #
+        # (maxfreq - 1):
+        # We create gaps between the occurrences of the most frequent task.
+        #
+        # (n + 1):
+        # Each gap/block contains:
+        #     1 task + n cooldown spaces
+        #
+        # countmax:
+        # Handles multiple tasks that have the same maximum frequency.
+        result = (maxfreq - 1) * (n + 1) + countmax
+
+        # We need at least len(tasks) intervals because
+        # every task must eventually be executed.
+        #
+        # If there are enough different tasks to fill all cooldowns,
+        # we don't need idle time.
+        #
+        # Therefore take the larger value.
+        return max(len(tasks), result)
