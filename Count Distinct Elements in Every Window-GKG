@@ -1,0 +1,28 @@
+class Solution:
+    def countDistinct(self, arr, k):
+        hashmap = {}
+        count_arr = []
+
+    # First window
+        for i in range(k):
+            hashmap[arr[i]] = hashmap.get(arr[i], 0) + 1
+
+        count_arr.append(len(hashmap))
+
+    # Slide the window
+        for i in range(k, len(arr)):
+
+        # Add the new element
+            hashmap[arr[i]] = hashmap.get(arr[i], 0) + 1
+
+        # Remove the outgoing element
+            hashmap[arr[i - k]] -= 1
+
+        # If frequency becomes 0, remove it
+            if hashmap[arr[i - k]] == 0:
+                del hashmap[arr[i - k]]
+
+        # Number of distinct elements
+            count_arr.append(len(hashmap))
+
+        return count_arr
