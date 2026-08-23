@@ -1,0 +1,60 @@
+from collections import deque
+
+class Solution:
+    def firstNegInt(self, arr, k):
+        q = deque()
+        ans = []
+
+        for i in range(len(arr)):
+
+            # Add negative element
+            if arr[i] < 0:
+                q.append(i)
+
+            # Remove negative elements outside current window
+            while q and q[0] <= i - k:
+                q.popleft()
+
+            # Window is complete
+            if i >= k - 1:
+
+                if q:
+                    ans.append(arr[q[0]])
+                else:
+                    ans.append(0)
+
+        return ans
+
+
+
+
+##broute force
+
+
+
+class Solution:
+    def firstNegInt(self, arr, k):
+        ans_arr = []
+
+        for i in range(len(arr) - k + 1):
+
+            window = arr[i:i+k]
+
+            found = False
+
+            for num in window:
+                if num < 0:
+                    ans_arr.append(num)
+                    found = True
+                    break
+
+            if not found:
+                ans_arr.append(0)
+
+        return ans_arr
+
+
+
+
+
+
