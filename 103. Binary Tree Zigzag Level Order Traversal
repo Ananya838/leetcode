@@ -1,0 +1,45 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+
+        ans = []
+        queue = deque([root])
+        
+        level_num = 0
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                node = queue.popleft()
+
+                level.append(node.val)
+
+                if node.left:
+                    queue.append(node.left)
+
+                if node.right:
+                    queue.append(node.right)
+                
+                if level_num % 2 == 1: ### in ans array the indexes 1,3,5,7.. should be in reversed order while others should get reversed ex:-> [[3]->Not revresed,[9,20]->reveresed,[15,7]->not reveresed]->alternative or zig zag wise reverse the the levels
+                    level = level[::-1]  ## reversing level for [9,20]
+
+            ans.append(level[::-1])
+            level_num += 1
+            
+        return  ans
+
+
+# LEVEL
+
+# 0 → normal
+# 1 → reverse
+# 2 → normal
+# 3 → reverse
+# 4 → normal
+        
