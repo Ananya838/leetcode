@@ -1,45 +1,92 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
-    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def rightSideView(
+        self, root: Optional[TreeNode]
+    ) -> List[int]:
+
+        # If there is no tree, there is nothing to see.
         if not root:
             return []
 
+        # BFS uses a queue because we want to process
+        # the tree LEVEL BY LEVEL.
         ans = []
         queue = deque([root])
-        
-        level_num = 0
+
         while queue:
-            level = []
-            for _ in range(len(queue)):
+
+            # IMPORTANT:
+            # Capture the number of nodes currently in the queue.
+            #
+            # These nodes belong to the SAME level.
+            #
+            # Example:
+            #
+            #       1
+            #      / \
+            #     2   3
+            #
+            # When processing level 1:
+            # queue = [2, 3]
+            # level_size = 2
+            #
+            # We must process exactly these 2 nodes.
+            level_size = len(queue)
+
+            # Process all nodes belonging to this level.
+            # i tells us the position of the node inside this level.
+            #
+            # Example:
+            # level = [2, 3]
+            #
+            # i = 0 → node 2
+            # i = 1 → node 3
+            #
+            # Since we process LEFT → RIGHT,
+            # the LAST node is the RIGHTMOST node.
+            for i in range(level_size):
+
                 node = queue.popleft()
 
-                level.append(node.val)
+                # If this is the LAST node of the current level,
+                # it is the node we would see from the RIGHT side.
+                #
+                # Example:
+                #
+                #       1
+                #      / \
+                #     2   3
+                #
+                # At this level:
+                #
+                # i = 0 → 2
+                # i = 1 → 3 ← LAST → visible from right
+                if i == level_size - 1:
+                    ans.append(node.val)
 
+                # We still add BOTH children.
+                #
+                # Why?
+                #
+                # Even though we only care about the rightmost
+                # node for the answer, the children of ALL nodes
+                # may become visible at the next level.
+                #
+                # Example:
+                #
+                #       1
+                #      / \
+                #     2   3
+                #      \   \
+                #       5   4
+                #
+                # We cannot ignore node 2 just because 3 is
+                # currently visible.
+                #
+                # Node 2 has child 5, which may matter later.
                 if node.left:
                     queue.append(node.left)
 
                 if node.right:
                     queue.append(node.right)
-                
-            if level_num % 2 == 1: ### in ans array the indexes 1,3,5,7.. should be in reversed order while others should get reversed ex:-> [[3]->Not revresed,[9,20]->reveresed,[15,7]->not reveresed]->alternative or zig zag wise reverse the the levels
-                level = level[::-1]  ## reversing level for [9,20]
 
-            ans.append(level)
-            level_num += 1
-            
-        return  ans
-
-
-# LEVEL
-
-# 0 → normal
-# 1 → reverse
-# 2 → normal
-# 3 → reverse
-# 4 → normal
-        
+        return ans
