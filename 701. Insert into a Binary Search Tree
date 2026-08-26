@@ -1,0 +1,17 @@
+def insertIntoBST(root, val):
+
+    # We found an empty position.
+    # Put the new node here.
+    if not root:
+        return TreeNode(val)
+
+    # New value belongs somewhere in left subtree.
+    if val < root.val:
+        root.left = insertIntoBST(root.left, val)
+
+    # New value belongs somewhere in right subtree.
+    else:
+        root.right = insertIntoBST(root.right, val)
+
+    # Return the current root unchanged.
+    return root
