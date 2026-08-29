@@ -1,0 +1,18 @@
+class Solution:
+    def taskSchedulerII(self, tasks: List[int], space: int) -> int:
+        next_day = {}
+        day = 0
+
+        for task in tasks:
+            # Move to the next day because we need to perform one task
+            day += 1
+
+            # If this task is still in cooldown, jump to its next valid day
+            if task in next_day:
+                day = max(day, next_day[task])
+
+            # After completing this task today,
+            # it can be performed again after 'space' days
+            next_day[task] = day + space + 1
+
+        return day
