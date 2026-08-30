@@ -1,0 +1,37 @@
+###sliding window concept
+# class Solution:
+#     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+#         def Atmost(k):
+#             if k < 0:
+#                 return 0
+#             left = 0 
+#             windowsum = 0
+#             count = 0
+#             for right in range(len(nums)):
+#                 windowsum += nums[right]
+#                 while windowsum>k:
+#                     windowsum-=nums[left]
+#                     left+=1
+#                 count += right - left +1
+#             return count
+#         return Atmost(goal)-Atmost(goal-1)
+
+
+### pattern3- hashmap+prefixsum   
+class Solution:
+    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+        prefix = {0:1}
+        count = 0
+        prefixsum = 0
+        for num in nums:
+            prefixsum += num
+
+            needed = prefixsum - goal
+            if needed in prefix:
+                count+=prefix[needed]
+            prefix[prefixsum] = prefix.get(prefixsum,0)+1
+        return count
+
+
+            
+        
