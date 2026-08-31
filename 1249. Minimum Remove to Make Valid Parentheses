@@ -1,0 +1,43 @@
+# class Solution:
+#     def minRemoveToMakeValid(self, s: str) -> str:
+#         stack = []
+#         ans = []
+#         for ch in s:
+#             if ch in "{([":
+#                 stack.append(ch)
+#                 ans.append(ch)
+#             elif ch in "}])":
+
+#                 if (ch == ']' or ch == '}' or ch == ')') and stack and stack[-1]  in '{[(':
+#                     stack.pop()
+#                     ans.append(ch)
+#             elif ch not in '[]{}()':
+#                 ans.append(ch)
+#         return   "".join(ans) if stack is None else ""
+                
+##correct answer
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:  
+        stack = []
+        remove = set()
+
+        for i,ch in enumerate(s):
+
+            if ch == '(':
+                stack.append(i)
+            elif ch == ')':
+                if stack:
+                    stack.pop()
+                else:
+                    remove.add(i)
+            
+            
+        for i in stack:
+            remove.add(i)
+        ans =[]
+        for i in range(len(s)):
+            if i not in remove:
+                ans.append(s[i])
+        return "".join(ans)
+                
+        
