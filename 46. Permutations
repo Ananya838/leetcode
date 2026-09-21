@@ -1,0 +1,27 @@
+class Solution:
+    def permute(self, nums: list[int]) -> list[list[int]]:
+        result = []
+        path = []
+        used = [False]*len(nums)
+        def backtrack():
+            ##base coniditon
+            if len(path)==len(nums):
+                result.append(path.copy())
+                return
+
+            for i in range(len(nums)):
+                if used[i]:##if we have already used that elemnt then it becomes true if used[i] is true then we skip it
+                   continue
+                
+                ##take or include
+                path.append(nums[i])
+                ## we have used the nums[i] so we make used[i] = True to mark it as used
+                used[i] = True
+                backtrack()
+
+                ## don't take or exclude
+                path.pop()
+                ## once we pop elmnt from the path then we need make that elmnt as unused or False
+                used[i]=False
+        backtrack()
+        return result
