@@ -1,0 +1,17 @@
+class Solution:
+    def subsets(self, nums: list[int]) -> list[list[int]]:
+        result = []
+        path = []
+        def generate(i):
+            if i == len(nums):
+                result.append(path.copy())
+                return
+            ##include or take
+            path.append(nums[i])
+            generate(i+1)
+            path.pop()
+            
+            ##exclude or dont take
+            generate(i+1)
+        generate(0)
+        return result
