@@ -1,0 +1,75 @@
+class Solution:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+        result = []
+        path = []
+
+        def backtrack(start, sum_path):
+
+            # SUCCESS: target reached
+            if sum_path == target:
+                result.append(path.copy())
+                return
+
+            # PRUNING: we crossed the target
+            if sum_path > target:
+                return
+
+            # Try every candidate from 'start' onwards
+            for i in range(start, len(candidates)):
+
+                # CHOOSE
+                path.append(candidates[i])
+                sum_path += candidates[i]
+
+                # EXPLORE
+                # We pass i, not i + 1,
+                # because the same candidate can be reused.
+                # But start prevents us from going backward.
+                backtrack(i, sum_path)
+
+                # UNDO / BACKTRACK
+                path.pop()
+                sum_path -= candidates[i]
+
+        # Start with no elements selected and sum = 0
+        backtrack(0, 0)
+
+
+
+
+
+###################################################################################################################################################or
+
+class Solution:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+        result = []
+        path = []
+        sum_path = 0
+        def backtrack(start,sum_path):
+            if sum_path == target:
+                result.append(path.copy())
+                return
+            if sum_path > target:
+                return
+            for i in range(start,len(candidates)):
+                
+                #include 
+                path.append(candidates[i])
+                sum_path+=candidates[i]
+
+                # we can use the elmt as many times we want but we cannot go backward so we use Start in the for loop and sending backtrack(i,sum_path) instead of backtrack(i+1,sum_path) bacause if we use i+1 the elmnt we cannot use again if we use the i then we can agin use thatt elmnt 
+                #example:-
+                # #i=1
+                # path.append(nums[i])
+                # backtrack(i+1,sum_path)-> for i in range(2,n)=> once we used the i i.e nums[i] if use i+1 then we cannot use the nums[i] i.e i again 
+                # if backtrack(i,sum_path)-> for i in range(1,n) => we can use the nums[i] again .
+
+                backtrack(i,sum_path) #explore
+                
+                # exclude
+                path.pop()
+                sum_path-=candidates[i]
+        backtrack(0,sum_path)    
+        return result
+
+        return result
