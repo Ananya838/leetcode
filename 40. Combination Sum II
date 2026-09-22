@@ -33,3 +33,35 @@ def backtrack(start, target):
 problem                             techniuqe
 Don't reuse the same index	->      backtrack(i + 1, ...)
 Avoid duplicate combinations -> 	  if i > start and candidates[i] == candidates[i-1]: continue
+
+
+##################################################################################################################################
+Important
+
+candidates.sort()
+       ↓
+makes duplicates adjacent
+
+i > start && candidates[i] == candidates[i-1]
+       ↓
+skip duplicate branches at SAME level
+
+backtrack(i + 1, ...)
+       ↓
+don't reuse the same element/index
+
+##############################################################################################################################
+
+Important - logic to rember 
+
+Sort
+  ↓
+Backtrack
+  ↓
+Skip duplicate at same level
+  ↓
+Choose element
+  ↓
+Recursive call with i + 1
+  ↓
+Remove element
