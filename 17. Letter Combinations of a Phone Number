@@ -1,0 +1,48 @@
+class Solution:
+    def letterCombinations(self, digits: str) -> list[str]:
+
+        phone = {
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz"
+        }
+
+        result = []       # stores all completed combinations
+        path = []         # stores current combination
+
+        def backtrack(index):
+
+            # All digits processed → combination complete
+            if index == len(digits):
+                result.append("".join(path))
+                return
+
+            # Get letters for current digit
+            # Example: index=0 → digits[0]="2" → "abc"
+            letters = phone[digits[index]]
+
+            # Try each letter of current digit
+            for ch in letters:
+
+                path.append(ch)      
+                # choose
+                # "a" → path = ['a']
+
+                backtrack(index + 1)
+                # move to next digit
+                # index=0 → index=1
+                # "a" + "d" → "ad"
+
+                path.pop()
+                # undo choice
+                # ['a','d'] → ['a']
+                # now try 'e', then 'f'
+
+        backtrack(0)      # start from first digit
+
+        return result
