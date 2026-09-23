@@ -21,3 +21,46 @@ class Solution:
                 return False
             l,r = l+1,r-1
         return True
+################################################################################################################################or
+
+
+class Solution:
+    def partition(self, s: str) -> list[list[str]]:
+        result = []
+        path = []
+
+        def isPalindrome(left, right):
+            # Check whether s[left:right+1] is a palindrome
+            while left < right:
+                if s[left] != s[right]:
+                    return False
+                left += 1
+                right -= 1
+
+            return True
+
+        def backtrack(start):
+
+            # We have partitioned the entire string
+            if start == len(s):
+                result.append(path.copy())
+                return
+
+            # Try every possible ending position
+            for end in range(start, len(s)):
+
+                # Take s[start...end] only if it is palindrome
+                if isPalindrome(start, end):
+
+                    # Choose
+                    path.append(s[start:end + 1])
+
+                    # Explore remaining string
+                    backtrack(end + 1)
+
+                    # Undo the choice
+                    path.pop()
+
+        backtrack(0)
+
+        return result
