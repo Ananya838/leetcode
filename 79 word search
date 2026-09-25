@@ -27,3 +27,73 @@ class Solution:
                     return True
         
         return False
+
+##############################################################################################################################################################
+
+
+BACKTRACKING
+
+
+
+class Solution:
+    def exist(self, board: list[list[str]], word: str) -> bool:
+
+        rows = len(board)
+        cols = len(board[0])
+
+        # Initially every cell is unvisited
+        visited = [[False] * cols for _ in range(rows)]
+
+        # LEFT, RIGHT, UP, DOWN
+        directions = [
+            (0, -1),
+            (0, 1),
+            (-1, 0),
+            (1, 0)
+        ]
+
+        def backtrack(row, col, index):
+
+            # 1. Boundary check
+            if row < 0 or row >= rows or col < 0 or col >= cols:
+                return False
+
+            # 2. Already visited?
+            if visited[row][col]:
+                return False
+
+            # 3. Does current cell contain required letter?
+            if board[row][col] != word[index]:
+                return False
+
+            # 4. Choose this cell
+            visited[row][col] = True
+
+            # 5. Is this the LAST letter?
+            if index == len(word) - 1:
+                return True
+
+            # 6. Explore all 4 directions
+            for dr, dc in directions:
+
+                nr = row + dr
+                nc = col + dc
+
+                # Explore the neighbor
+                if backtrack(nr, nc, index + 1):
+                    return True
+
+            # 7. All directions failed
+            # Undo the current choice
+            visited[row][col] = False
+
+            return False
+
+        # Try every cell as a starting point
+        for row in range(rows):
+            for col in range(cols):
+
+                if backtrack(row, col, 0):
+                    return True
+
+        return False
