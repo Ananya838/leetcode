@@ -1,0 +1,51 @@
+class Solution:
+    def ratInMaze(self, maze: list[list[int]]) -> list[str]:
+
+        n = len(maze)
+
+        if maze[0][0] == 0 or maze[n-1][n-1] == 0:
+            return []
+
+        result = []
+        path = []
+
+        visited = [[False] * n for _ in range(n)]
+
+        directions = [
+            ('D', 1, 0),
+            ('L', 0, -1),
+            ('R', 0, 1),
+            ('U', -1, 0)
+        ]
+
+        def backtrack(row, col):
+
+            if row < 0 or row >= n or col < 0 or col >= n:
+                return
+
+            if maze[row][col] == 0 or visited[row][col]:
+                return
+
+            if row == n - 1 and col == n - 1:
+                result.append("".join(path))
+                return
+
+            visited[row][col] = True
+
+            for move, dr, dc in directions:
+
+                nr = row + dr
+                nc = col + dc
+
+                
+                path.append(move)
+
+                backtrack(nr, nc)
+
+                path.pop()
+
+            visited[row][col] = False
+
+        backtrack(0, 0)
+
+        return result
