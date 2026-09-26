@@ -1,0 +1,59 @@
+                    backtrack(index=0, current_sum=0)
+                     /                                \
+        Include arr[0] (3)                      Exclude arr[0]
+       backtrack(1, 3)                         backtrack(1, 0)
+        /          \                            /          \
+  Inc arr[1](4)   Exc arr[1]             Inc arr[1](4)   Exc arr[1]
+ backtrack(2, 7)  backtrack(2, 3)       backtrack(2, 4)  backtrack(2, 0)
+   (7 > 4)          (index >= 2)          (4 == 4)        (index >= 2)
+  Returns False    Returns False        Returns True     Returns False
+
+--------                             ---------------           ------------------------            ----------------------------------------          ----------------------
+
+class Solution:
+    def isSubsetSum(self, arr: list[int], sum: int) -> bool:
+        # code here
+        # path = []
+        
+        def backtrack(index,sum_path):
+            
+            if sum_path == sum:
+                return True
+            
+            if sum_path>sum or index>len(arr)-1:
+                return False
+            
+            if backtrack(index+1,sum_path+arr[index]):
+                return True
+                
+            if backtrack(index+1,sum_path):
+                return True
+            
+            return False 
+
+
+
+Backtrack- time  complexity is more  so efficent method for this problem is Dynamic programming.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Dynamic programming.
+
+
+
+class Solution:
+    def isSubsetSum(self, arr: list[int], sum: int) -> bool:
+        dp = [False] * (sum + 1)
+        dp[0] = True  # A sum of 0 is always possible (empty subset)
+
+        for num in arr:
+            # Iterate backwards so we don't reuse the same number in the same step
+            for j in range(sum, num - 1, -1):
+                if dp[j - num]:
+                    dp[j] = True
+
+        return dp[sum]
+            
+        return backtrack(0,0)
