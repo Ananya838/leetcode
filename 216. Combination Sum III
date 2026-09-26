@@ -1,0 +1,36 @@
+class Solution:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
+        result = []
+        path = []
+
+        def backtrack(start,sum_path,path):
+            
+             #success 
+            if len(path)==k and sum_path == n:
+                result.append(path.copy())
+                return
+
+             #constraint
+            if len(path)>=k and (sum_path>n or sum_path<n): ##pruning condition or stoping condition
+                return 
+
+            # path.append(start)
+            # backtrack(start+1,sum_path+start,path)
+            # path.pop()  
+            # backtrack(start+1,sum_path,path)
+             
+            for i in range(start,10):
+
+                #include or choice 1
+                path.append(i)
+                sum_path+=i
+
+                #explore
+                backtrack(i+1,sum_path,path)
+
+                #Exclude or choice2
+                path.pop()
+                sum_path-=i
+
+        backtrack(1,0,[])
+        return result 
