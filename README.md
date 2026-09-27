@@ -1,99 +1,150 @@
 # LeetCode Solutions
 
-Welcome to my LeetCode solutions repository! This repository contains my solutions to various LeetCode problems, categorized by the core data structures and algorithmic patterns used to solve them. 
+Welcome to my LeetCode solutions repository! This repository contains my solutions to various LeetCode problems (as well as some GeeksforGeeks problems), categorized by the core data structures and algorithmic patterns used to solve them.
+
+---
 
 ## 🧱 Data Structures
 
 ### Arrays & Hashing
-* [1. Two Sum](./1.Two%20sum)
-* [15. 3Sum](./15.%203Sum)
-* [16. 3Sum Closest](./16.%203Sum%20Closest)
-* [26. Remove Duplicates from Sorted Array](./26.%20Remove%20Duplicates%20from%20Sorted%20Array)
-* [136. Single Number](./136.single%20number)
-* [169. Majority Element](./169%20Majority%20Element)
-* [242. Valid Anagram](./242.valid%20Anagram)
-* [347. Top K Frequent Elements](./347.%20Top%20K%20Frequent%20Elements)
+- [1. Two Sum](./1.Two%20sum)
+- [15. 3Sum](./15.%203Sum)
+- [16. 3Sum Closest](./16.%203Sum%20Closest)
+- [26. Remove Duplicates from Sorted Array](./26.%20Remove%20Duplicates%20from%20Sorted%20Array)
+- [88. Merge Sorted Array](./88.%20Merge%20Sorted%20Array)
+- [136. Single Number](./136.single%20number)
+- [169. Majority Element](./169%20Majority%20Element)
+- [189. Rotate Array](./189.%20Rotate%20Array)
+- [242. Valid Anagram](./242.valid%20Anagram)
+- [347. Top K Frequent Elements](./347.%20Top%20K%20Frequent%20Elements)
+- [2365. Task Scheduler II](./2365.%20Task%20Scheduler%20II)
+- [2418. Sort the People](./2418.%20Sort%20the%20People)
+- [2996. Smallest Missing Integer Greater Than Sequential Prefix Sum](./2996.%20Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum)
 
 ### Linked List
-* [2. Add Two Numbers](./2.%20Add%20Two%20Numbers)
-* [19. Remove Nth Node From End of List](./19.%20Remove%20Nth%20Node%20From%20End%20of%20List)
-* [21. Merge Two Sorted Lists](./21.%20Merge%20Two%20Sorted%20Lists)
-* [25. Reverse Nodes in k-Group](./25.%20Reverse%20Nodes%20in%20k-Group)
-* [86. Partition List](./86.%20Partition%20List)
-* [92. Reverse Linked List II](./92.%20Reverse%20Linked%20List%20II)
-* [143. Reorder List](./143.%20Reorder%20List)
-* [146. LRU Cache](./146.%20LRU%20cache)
-* [203. Remove Linked List Elements](./203.%20Remove%20Linked%20List%20Elements)
-* [206. Reverse Linked List](./206.%20Reverse%20Linked%20List)
-* [234. Palindrome Linked List](./234.%20Palindrome%20Linked%20List)
+- [2. Add Two Numbers](./2.%20Add%20Two%20Numbers)
+- [19. Remove Nth Node From End of List](./19.%20Remove%20Nth%20Node%20From%20End%20of%20List)
+- [21. Merge Two Sorted Lists](./21.%20Merge%20Two%20Sorted%20Lists)
+- [23. Merge k Sorted Lists](./23.%20Merge%20k%20Sorted%20Lists)
+- [25. Reverse Nodes in k-Group](./25.%20Reverse%20Nodes%20in%20k-Group)
+- [86. Partition List](./86.%20Partition%20List)
+- [92. Reverse Linked List II](./92.%20Reverse%20Linked%20List%20II)
+- [143. Reorder List](./143.%20Reorder%20List)
+- [146. LRU Cache](./146.%20LRU%20cache)
+- [148. Sort List](./148.%20Sort%20List)
+- [203. Remove Linked List Elements](./203.%20Remove%20Linked%20List%20Elements)
+- [206. Reverse Linked List](./206.%20Reverse%20Linked%20List)
+- [234. Palindrome Linked List](./234.%20Palindrome%20Linked%20List)
 
 ### Stack & Queue (Standard)
-* [Valid Parentheses](./Valid%20Parentheses)
-* [150. Evaluate Reverse Polish Notation](./150.%20Evaluate%20Reverse%20Polish%20Notation)
-* [155. Min Stack](./155%20Min%20stack)
-* [225. Implement Stack using Queues](./225.%20Implement%20Stack%20using%20Queues)
-* [232. Implement Queue using Stacks](./232.%20Implement%20Queue%20using%20Stacks)
-* [895. Maximum Frequency Stack](./895.%20Maximum%20Frequency%20Stack)
-* [1544. Make The String Great](./1544.%20Make%20The%20String%20Great)
+- [Valid Parentheses](./Valid%20Parentheses)
+- [150. Evaluate Reverse Polish Notation](./150.%20Evaluate%20Reverse%20Polish%20Notation)
+- [155. Min Stack](./155%20Min%20stack)
+- [225. Implement Stack using Queues](./225.%20Implement%20Stack%20using%20Queues)
+- [232. Implement Queue using Stacks](./232.%20Implement%20Queue%20using%20Stacks)
+- [735. Asteroid Collision](./735.%20Asteroid%20Collision)
+- [895. Maximum Frequency Stack](./895.%20Maximum%20Frequency%20Stack)
+- [1249. Minimum Remove to Make Valid Parentheses](./1249.%20Minimum%20Remove%20to%20Make%20Valid%20Parentheses)
+- [1544. Make The String Great](./1544.%20Make%20The%20String%20Great)
 
 ### Monotonic Stack
-* [316. Remove Duplicate Letters](./316.%20Remove%20Duplicate%20Letters)
-* [402. Remove K Digits](./402.%20Remove%20K%20Digits)
-* [503. Next Greater Element II](./503.%20Next%20Greater%20Element%20II)
-* [907. Sum of Subarray Minimums](./907.%20Sum%20of%20Subarray%20Minimums)
-* [1081. Smallest Subsequence of Distinct Characters](./1081.%20Smallest%20Subsequence%20of%20Distinct%20Characters)
-* [1475. Final Prices With a Special Discount in a Shop](./1475.%20Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop)
-* [2104. Sum of Subarray Ranges](./2104.%20Sum%20of%20Subarray%20Ranges)
+- [316. Remove Duplicate Letters](./316.%20Remove%20Duplicate%20Letters)
+- [402. Remove K Digits](./402.%20Remove%20K%20Digits)
+- [456. 132 Pattern](./456.%20132%20Pattern)
+- [496. Next Greater Element I](./496.%20Next%20Greater%20Element%20I)
+- [503. Next Greater Element II](./503.%20Next%20Greater%20Element%20II)
+- [739. Daily Temperatures](./739.%20Daily%20Temperatures)
+- [901. Online Stock Span](./901.%20Online%20Stock%20Span)
+- [907. Sum of Subarray Minimums](./907.%20Sum%20of%20Subarray%20Minimums)
+- [1081. Smallest Subsequence of Distinct Characters](./1081.%20Smallest%20Subsequence%20of%20Distinct%20Characters)
+- [1475. Final Prices With a Special Discount in a Shop](./1475.%20Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop)
+- [2104. Sum of Subarray Ranges](./2104.%20Sum%20of%20Subarray%20Ranges)
 
 ### Heap / Priority Queue
-* [215. Kth Largest Element in an Array](./215.%20Kth%20Largest%20Element%20in%20an%20Array)
-* [295. Find Median from Data Stream](./295.%20Find%20Median%20from%20Data%20Stream)
-* [355. Design Twitter](./355%20design%20twitter)
-* [378. Kth Smallest Element in a Sorted Matrix](./378.%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix)
-* [621. Task Scheduler](./621.%20Task%20Scheduler)
-* [703. Kth Largest Element in a Stream](./703.%20Kth%20largest%20element%20in%20stream)
-* [973. K Closest Points to Origin](./973.%20K%20Closest%20Points%20to%20Origin)
-* [1046. Last Stone Weight](./1046.%20Last%20Stone%20Weight)
+- [215. Kth Largest Element in an Array](./215.%20Kth%20Largest%20Element%20in%20an%20Array)
+- [295. Find Median from Data Stream](./295.%20Find%20Median%20from%20Data%20Stream)
+- [355. Design Twitter](./355%20design%20twitter)
+- [378. Kth Smallest Element in a Sorted Matrix](./378.%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix)
+- [451. Sort Characters By Frequency](./451.%20Sort%20Characters%20By%20Frequency)
+- [621. Task Scheduler](./621.%20Task%20Scheduler)
+- [703. Kth Largest Element in a Stream](./703.%20Kth%20largest%20element%20in%20stream)
+- [767. Reorganize String](./767.Reorganize%20String)
+- [973. K Closest Points to Origin](./973.%20K%20Closest%20Points%20to%20Origin)
+- [1046. Last Stone Weight](./1046.%20Last%20Stone%20Weight)
 
-### Trees
-* [226. Invert Binary Tree](./226.%20Invert%20binary%20tree)
+### Trees (Binary Tree & BST)
+- [98. Validate Binary Search Tree](./98.%20Validate%20Binary%20Search%20Tree)
+- [101. Symmetric Tree](./101.%20Symmetric%20Tree)
+- [102. Binary Tree Level Order Traversal](./102.%20Binary%20Tree%20Level%20Order%20Traversal)
+- [103. Binary Tree Zigzag Level Order Traversal](./103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal)
+- [104. Maximum Depth of Binary Tree](./104.%20Maximum%20Depth%20of%20Binary%20Tree)
+- [105. Construct Binary Tree from Preorder and Inorder Traversal](./105.%20Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal)
+- [110. Balanced Binary Tree](./110.%20Balanced%20Binary%20Tree)
+- [112. Path Sum](./112.%20Path%20Sum)
+- [199. Binary Tree Right Side View](./199.%20Binary%20Tree%20Right%20Side%20View)
+- [226. Invert Binary Tree](./226.%20Invert%20binary%20tree)
+- [235. Lowest Common Ancestor of a Binary Search Tree](./235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree)
+- [236. Lowest Common Ancestor of a Binary Tree](./236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree)
+- [543. Diameter of Binary Tree](./543.%20Diameter%20of%20Binary%20Tree)
+- [700. Search in a Binary Search Tree](./700.%20Search%20in%20a%20Binary%20Search%20Tree)
+- [701. Insert into a Binary Search Tree](./701.%20Insert%20into%20a%20Binary%20Search%20Tree)
 
 ---
 
 ## ⚙️ Algorithmic Patterns (Detailed)
 
 ### Two Pointers
-* **Standard & Opposite Ends:**
-  * [15. 3Sum](./15.%203Sum)
-  * [88. Merge Sorted Array](./88.%20Merge%20Sorted%20Array)
-  * [844. Backspace String Compare](./844.%20Backspace%20String%20Compare)
-* **In-Place Modification / Partitioning:**
-  * [283. Move Zeroes](./283%20Move%20Zeroes)
-* **Fast & Slow Pointers (Cycle Detection):**
-  * [141. Linked List Cycle](./141.%20Linked%20List%20Cycle)
-  * [287. Find the Duplicate Number](./287.Find%20duplicate%20number)
-* **K-Closest / Binary Search Variant:**
-  * [658. Find K Closest Elements](./658.%20Find%20K%20Closest%20Elements)
+*Standard & Opposite Ends:*
+- [15. 3Sum](./15.%203Sum)
+- [88. Merge Sorted Array](./88.%20Merge%20Sorted%20Array)
+- [844. Backspace String Compare](./844.%20Backspace%20String%20Compare)
+
+*In-Place Modification / Partitioning:*
+- [283. Move Zeroes](./283%20Move%20Zeroes)
+
+*Fast & Slow Pointers (Cycle Detection):*
+- [141. Linked List Cycle](./141.%20Linked%20List%20Cycle)
+- [287. Find the Duplicate Number](./287.Find%20duplicate%20number)
+
+*K-Closest / Binary Search Variant:*
+- [658. Find K Closest Elements](./658.%20Find%20K%20Closest%20Elements)
 
 ### Sliding Window & Kadane's
-* **Kadane's Algorithm (Local Maximums):**
-  * [53. Maximum Subarray](./53.Maximum%20Subarray)
-  * [Best Time to Buy and Sell Stock](./Best%20Time%20to%20Buy%20%20and%20%20Sell%20Stock)
+*Kadane's Algorithm (Local Maximums):*
+- [53. Maximum Subarray](./53.Maximum%20Subarray)
+- [Best Time to Buy and Sell Stock](./Best%20Time%20to%20Buy%20%20and%20%20Sell%20Stock)
+
+*Sliding Window:*
+- [930. Binary Subarrays With Sum](./930.%20Binary%20Subarrays%20With%20Sum)
+- [Count Distinct Elements in Every Window-GKG](./Count%20Distinct%20Elements%20in%20Every%20Window-GKG)
+- [First Negative in Windows of Size K-GKG](./First%20Negative%20in%20Windows%20of%20Size%20K-GKG)
 
 ### Backtracking
-* **Combinations & Subsets:**
-  * [77. Combinations](./77.%20Combinations)
-  * [131. Palindrome Partitioning](./131%20palindrome%20partitioning)
-* **Constraint Satisfaction / State Building:**
-  * [22. Generate Parentheses](./22%20generate%20parenthases)
-  * [51. N-Queens](./51.%20N%20queens)
-* **Matrix / Grid Traversal:**
-  * [79. Word Search](./79%20word%20search)
+*Combinations, Subsets & Permutations:*
+- [17. Letter Combinations of a Phone Number](./17.%20Letter%20Combinations%20of%20a%20Phone%20Number)
+- [39. Combination Sum](./39.%20Combination%20Sum)
+- [40. Combination Sum II](./40.%20Combination%20Sum%20II)
+- [46. Permutations](./46.%20Permutations)
+- [77. Combinations](./77.%20Combinations)
+- [78. Subsets](./78.%20Subsets)
+- [131. Palindrome Partitioning](./131%20palindrome%20partitioning)
+- [216. Combination Sum III](./216.%20Combination%20Sum%20III)
+- [Subset Sum Problem-GKG](./Subset%20Sum%20Problem-GKG)
 
-### Math & Strings
-* **String Parsing & Formatting:**
-  * [12. Integer to Roman](./12.%20Integer%20to%20Roman)
-  * [Roman to Integer](./Roman%20to%20Integer)
-  * [Longest Common Prefix](./Longest%20Common%20Prefix)
-* **Mathematical Computation:**
-  * [Pow(x,n)](./Pow(x,n))
+*Constraint Satisfaction / State Building:*
+- [22. Generate Parentheses](./22%20generate%20parenthases)
+- [51. N-Queens](./51.%20N%20queens)
+
+*Matrix / Grid Traversal:*
+- [79. Word Search](./79%20word%20search)
+- [Rat in a Maze-GKG](./Rat%20in%20a%20Maze-GKG%20----similer%20to%20word%20search-Leetcode)
+
+### Math, Strings & Sorting
+*String Parsing & Formatting:*
+- [12. Integer to Roman](./12.%20Integer%20to%20Roman)
+- [Roman to Integer](./Roman%20to%20Integer)
+- [Longest Common Prefix](./Longest%20Common%20Prefix)
+
+*Mathematical Computation & Array Manipulation:*
+- [Pow(x,n)](./Pow(x,n))
+- [912. Sort an Array](./912.%20Sort%20an%20Array)
