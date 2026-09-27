@@ -119,6 +119,15 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [Count Distinct Elements in Every Window-GKG](./Count%20Distinct%20Elements%20in%20Every%20Window-GKG)
 - [First Negative in Windows of Size K-GKG](./First%20Negative%20in%20Windows%20of%20Size%20K-GKG)
 
+### Binary Search
+*Standard Search:*
+- [704. Binary Search](./704.%20Binary%20Search)
+- [33. Search in Rotated Sorted Array](./33.%20Search%20in%20Rotated%20Sorted%20Array)
+
+*Binary Search on Answer (Monotonic Search Space):*
+- [875. Koko Eating Bananas](./875.%20Koko%20Eating%20Bananas)
+- [1011. Capacity To Ship Packages Within D Days](./1011.%20Capacity%20To%20Ship%20Packages%20Within%20D%20Days)
+
 ### Backtracking
 *Combinations, Subsets & Permutations:*
 - [17. Letter Combinations of a Phone Number](./17.%20Letter%20Combinations%20of%20a%20Phone%20Number)
