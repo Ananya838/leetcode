@@ -151,7 +151,7 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [Rat in a Maze-GKG](./Rat%20in%20a%20Maze-GKG%20----similer%20to%20word%20search-Leetcode)
 
 *Tree-Backtracking:*
--- [113. Path Sum II](113.%20Path%20Sum%20II)
+- [113. Path Sum II](113.%20Path%20Sum%20II)
 
 ### Math, Strings & Sorting
 *String Parsing & Formatting:*
