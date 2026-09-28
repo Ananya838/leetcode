@@ -123,6 +123,9 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [Count Distinct Elements in Every Window-GKG](./Count%20Distinct%20Elements%20in%20Every%20Window-GKG)
 - [First Negative in Windows of Size K-GKG](./First%20Negative%20in%20Windows%20of%20Size%20K-GKG)
 
+## Binary Search
+
+- [Binary Search Patterns Quick Guide](BinarySearch-patterns-quickguide.md)
 
 ### Backtracking
 *Combinations, Subsets & Permutations:*
