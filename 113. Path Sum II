@@ -1,0 +1,637 @@
+# 🌳 Path Sum II — DFS + Backtracking
+
+**LeetCode 113 — Path Sum II**
+
+The goal is to find **all root-to-leaf paths** whose sum equals `targetSum`.
+
+---
+
+## 1. Example
+
+```text
+             5
+            / \
+           4   8
+          /   / \
+         11  13  4
+        / \      / \
+       7   2    5   1
+```
+
+Target:
+
+```text
+22
+```
+
+Valid paths:
+
+```text
+5 → 4 → 11 → 2 = 22
+5 → 8 → 4 → 5 = 22
+```
+
+---
+
+# 2. Core Idea
+
+We maintain:
+
+```python
+path = []
+result = []
+```
+
+### `path`
+
+Stores the path from the root to the **current node**.
+
+Example:
+
+```text
+5 → 4 → 11
+
+path = [5, 4, 11]
+```
+
+### `result`
+
+Stores all valid paths.
+
+```text
+result = [
+    [5, 4, 11, 2],
+    [5, 8, 4, 5]
+]
+```
+
+---
+
+# 3. Why Backtracking?
+
+While exploring a tree, we need to try different paths.
+
+Suppose:
+
+```text
+        5
+       /
+      4
+     /
+    11
+   /  \
+  7    2
+```
+
+We first explore:
+
+```text
+5 → 4 → 11 → 7
+```
+
+So:
+
+```text
+path = [5, 4, 11, 7]
+```
+
+After finishing `7`, we need to explore `2`.
+
+We must remove `7` first:
+
+```python
+path.pop()
+```
+
+Now:
+
+```text
+path = [5, 4, 11]
+```
+
+Then:
+
+```text
+path = [5, 4, 11, 2]
+```
+
+This is **backtracking**.
+
+---
+
+# 4. The Backtracking Pattern ⭐⭐⭐
+
+The most important pattern:
+
+```text
+CHOOSE
+  ↓
+EXPLORE
+  ↓
+UNDO
+```
+
+In code:
+
+```python
+path.append(node.val)    # CHOOSE
+
+dfs(...)                 # EXPLORE
+
+path.pop()               # UNDO
+```
+
+### Remember:
+
+```text
+append → explore → pop
+```
+
+---
+
+# 5. Complete Solution
+
+```python
+class Solution:
+    def pathSum(self, root, targetSum):
+
+        result = []
+        path = []
+
+        def dfs(node, remaining):
+
+            if not node:
+                return
+
+            # 1. CHOOSE
+            path.append(node.val)
+
+            # 2. Check if leaf
+            if node.left is None and node.right is None:
+
+                if remaining == node.val:
+                    result.append(path.copy())
+
+            else:
+
+                # 3. EXPLORE
+                dfs(node.left, remaining - node.val)
+                dfs(node.right, remaining - node.val)
+
+            # 4. UNDO
+            path.pop()
+
+        dfs(root, targetSum)
+
+        return result
+```
+
+---
+
+# 6. Why `path.pop()`?
+
+Without:
+
+```python
+path.pop()
+```
+
+the path would contain nodes from previous branches.
+
+Example:
+
+```text
+       5
+      / \
+     4   8
+```
+
+After exploring `4`:
+
+```text
+path = [5, 4]
+```
+
+If we don't pop `4`:
+
+```text
+path = [5, 4]
+```
+
+Then when we explore `8`:
+
+```text
+path = [5, 4, 8] ❌
+```
+
+But the real path is:
+
+```text
+[5, 8] ✅
+```
+
+Therefore:
+
+```python
+path.pop()
+```
+
+restores the path before exploring another branch.
+
+---
+
+# 7. Why `path.copy()`?
+
+When we find a valid path:
+
+```python
+result.append(path.copy())
+```
+
+We need to save the **current version** of `path`.
+
+If we do:
+
+```python
+result.append(path)
+```
+
+we store a reference to the same list that keeps changing.
+
+So use:
+
+```python
+path.copy()
+```
+
+This creates a separate list.
+
+Example:
+
+```text
+path = [5, 4, 11, 2]
+
+result.append(path.copy())
+
+result:
+[
+    [5, 4, 11, 2]
+]
+```
+
+Later:
+
+```python
+path.pop()
+```
+
+changes `path`, but the saved result remains unchanged.
+
+---
+
+# 8. Why `remaining` Is Passed as a Parameter?
+
+Don't do:
+
+```python
+remaining -= node.val
+```
+
+on one shared variable.
+
+Different branches need different remaining sums.
+
+Example:
+
+```text
+             5
+            / \
+           4   8
+```
+
+After visiting `5`:
+
+```text
+remaining = 22 - 5
+           = 17
+```
+
+Left branch:
+
+```text
+17 - 4 = 13
+```
+
+Right branch:
+
+```text
+17 - 8 = 9
+```
+
+So each recursive call receives its own value:
+
+```python
+dfs(node.left, remaining - node.val)
+dfs(node.right, remaining - node.val)
+```
+
+---
+
+# 9. Why Check Only Leaf Nodes?
+
+The problem asks for:
+
+> **Root-to-leaf paths**
+
+A leaf has:
+
+```python
+node.left is None and node.right is None
+```
+
+Therefore:
+
+```python
+if node.left is None and node.right is None:
+```
+
+is correct.
+
+### ❌ Wrong
+
+```python
+if not node.left or not node.right:
+```
+
+This means:
+
+> At least one child is missing.
+
+That does **not necessarily mean the node is a leaf**.
+
+---
+
+# 10. Complete Trace
+
+For:
+
+```text
+             5
+            /
+           4
+          /
+         11
+        /  \
+       7    2
+```
+
+Target:
+
+```text
+22
+```
+
+### Visit 5
+
+```text
+path = [5]
+remaining = 22
+```
+
+Explore:
+
+```text
+remaining = 22 - 5 = 17
+```
+
+---
+
+### Visit 4
+
+```text
+path = [5, 4]
+remaining = 17
+```
+
+Next:
+
+```text
+remaining = 17 - 4 = 13
+```
+
+---
+
+### Visit 11
+
+```text
+path = [5, 4, 11]
+remaining = 13
+```
+
+Next:
+
+```text
+remaining = 13 - 11 = 2
+```
+
+---
+
+### Visit 7
+
+```text
+path = [5, 4, 11, 7]
+
+remaining = 2 - 7
+          = -5
+```
+
+Leaf:
+
+```text
+-5 != 0
+```
+
+Invalid.
+
+Backtrack:
+
+```python
+path.pop()
+```
+
+Now:
+
+```text
+path = [5, 4, 11]
+```
+
+---
+
+### Visit 2
+
+```text
+path = [5, 4, 11, 2]
+
+remaining = 2 - 2
+          = 0
+```
+
+Leaf + remaining is `0`.
+
+Valid:
+
+```python
+result.append(path.copy())
+```
+
+Result:
+
+```text
+[
+    [5, 4, 11, 2]
+]
+```
+
+---
+
+# 11. DFS Flow
+
+```text
+                    DFS
+                     │
+                     ↓
+              Add node to path
+                     │
+                     ↓
+                 Is leaf?
+                /        \
+              YES         NO
+               │           │
+          Check sum     Explore children
+               │           │
+               │      ┌────┴────┐
+               │      ↓         ↓
+               │    LEFT      RIGHT
+               │      │         │
+               └──────┴─────────┘
+                     ↓
+                  path.pop()
+                     ↓
+                BACKTRACK
+```
+
+---
+
+# 12. General Tree Backtracking Template ⭐⭐⭐⭐⭐
+
+This pattern can be reused in many problems:
+
+```python
+def dfs(node):
+
+    if not node:
+        return
+
+    # CHOOSE
+    path.append(node.val)
+
+    # PROCESS / CHECK
+    ...
+
+    # EXPLORE
+    dfs(node.left)
+    dfs(node.right)
+
+    # UNDO
+    path.pop()
+```
+
+The most important line is:
+
+```python
+path.pop()
+```
+
+because it restores the state before moving to another branch.
+
+---
+
+# 13. Tree Backtracking Mental Model
+
+Think of DFS as walking through the tree:
+
+```text
+Go down
+  ↓
+Choose
+  ↓
+Explore
+  ↓
+Reach end
+  ↓
+Go back
+  ↓
+Undo
+  ↓
+Try another branch
+```
+
+So:
+
+```text
+append()
+   ↓
+DFS
+   ↓
+pop()
+```
+
+means:
+
+```text
+choose
+  ↓
+try
+  ↓
+undo
+```
+
+---
+
+# ⭐ Key Takeaways
+
+```text
+1. path = current root-to-node path
+
+2. result = all valid paths
+
+3. append() = choose current node
+
+4. DFS = explore the subtree
+
+5. pop() = backtrack / undo
+
+6. path.copy() = save current path
+
+7. remaining is passed as a parameter
+
+8. Check sum only at leaf nodes
+```
+
+### 🔥 Remember this one line:
+
+```text
+APPEND → EXPLORE → POP
+CHOOSE  →   TRY   → UNDO
+```
+
+This same backtracking pattern appears in:
+
+* Path Sum II
+* N-Queens
+* Subsets
+* Permutations
+* Combination Sum
+* Restore IP Addresses
+* Word Search
+* Generate Parentheses
