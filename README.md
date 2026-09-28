@@ -94,7 +94,7 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [701. Insert into a Binary Search Tree](./701.%20Insert%20into%20a%20Binary%20Search%20Tree)
 
 *Tree-Backtracking:*
-- [113. Path Sum II](113.%20Path%20Sum%20II)
+- [113. Path Sum II](path%20sum%20II.md)
 
 ---
 
@@ -151,7 +151,7 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [Rat in a Maze-GKG](./Rat%20in%20a%20Maze-GKG%20----similer%20to%20word%20search-Leetcode)
 
 *Tree-Backtracking:*
-- [113. Path Sum II](113.%20Path%20Sum%20II)
+- [113. Path Sum II](path%20sum%20II.md)
 
 ### Math, Strings & Sorting
 *String Parsing & Formatting:*
