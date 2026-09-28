@@ -93,8 +93,8 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [700. Search in a Binary Search Tree](./700.%20Search%20in%20a%20Binary%20Search%20Tree)
 - [701. Insert into a Binary Search Tree](./701.%20Insert%20into%20a%20Binary%20Search%20Tree)
 
-  *Tree-Backtracking:*
--- [113. Path Sum II](113.%20Path%20Sum%20II)
+*Tree-Backtracking:*
+- [113. Path Sum II](113.%20Path%20Sum%20II)
 
 ---
 
