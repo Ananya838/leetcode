@@ -31,7 +31,7 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 - [92. Reverse Linked List II](./92.%20Reverse%20Linked%20List%20II)
 - [143. Reorder List](./143.%20Reorder%20List)
 - [146. LRU Cache](./146.%20LRU%20cache)
-- [148. Sort List](./148.%20Sort%20List)
+- [148. Sort List](148.%20Sort%20List.md)
 - [203. Remove Linked List Elements](./203.%20Remove%20Linked%20List%20Elements)
 - [206. Reverse Linked List](./206.%20Reverse%20Linked%20List)
 - [234. Palindrome Linked List](./234.%20Palindrome%20Linked%20List)
