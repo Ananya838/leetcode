@@ -28,6 +28,27 @@ class Solution:
           queue.append(node.right)
 
     return ans
+
+
+
+###################################################################################################
+
+
+for Left Side View 
+
+
+replace
+
+ if i == level_size - 1:  #right side view
+    ans.append(node.val)
+
+
+with this
+
+ if i == 0:  # left side view
+    ans.append(node.val)
+
+
         
 
 
