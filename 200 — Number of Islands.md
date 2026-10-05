@@ -487,6 +487,8 @@ class Solution:
                         queue.append((nr,nc))
                         visited[nr][nc] = True
         count = 0
+
+        #### main logic for connected components it is almost same for every cc propblem  
         for row in range(rows):
             for col in range(cols):
                 if grid[row][col] == "1" and not visited[row][col]:
