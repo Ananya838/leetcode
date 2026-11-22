@@ -7,6 +7,8 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 ## 🧱 Data Structures
 
 ### Arrays & Hashing
+#### [SLIDING WINDOW](SLIDING WINDOW – COMPLETE LEARNING GUIDE.md)
+
 - [1. Two Sum](./1.Two%20sum)
 - [15. 3Sum](./15.%203Sum)
 - [16. 3Sum Closest](./16.%203Sum%20Closest)
